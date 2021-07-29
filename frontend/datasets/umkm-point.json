@@ -1,0 +1,50 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bakso Beranak Pak MAN",
+        "address": "Kenteng, Mulusan, Paliyan, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55871, Indonesia",
+        "phone": "+6287738802529",
+        "product": "Bakso",
+        "image_url": "https://lh3.googleusercontent.com/p/AF1QipM4vo4A97helN73YmK0CQzMCf0boEGKLsIWDaco=s1600-w400"
+      },
+      "geometry": {
+        "coordinates": [110.5452843, -8.00993],
+        "type": "Point"
+      },
+      "id": "9c6052e0da21023e9e1547eae88b7fd6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Angkringan pak KUWUK",
+        "address": "Jl. Raya Wonosari-Paliyan, Mulusan, Paliyan, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55871, Indonesia",
+        "phone": "",
+        "product": "Kopi",
+        "image_url": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=I6WgTifIG6LcTWdygOeZWA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=77.36704&pitch=0&thumbfov=100"
+      },
+      "geometry": {
+        "coordinates": [110.5436504, -8.011244],
+        "type": "Point"
+      },
+      "id": "a443f91fb45659d4704429cf671cd1df"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Alice Cake And Cookies",
+        "address": "Trukan, Karangasem, Paliyan, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55871, Indonesia",
+        "phone": "+6287845653331",
+        "product": "Cookies",
+        "image_url": "https://scontent-xsp1-2.xx.fbcdn.net/v/t1.6435-9/194482017_3962922127167326_5911828818218448254_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=973b4a&_nc_ohc=bqd6lkAro6kAX9k1Wic&tn=TkfY659BYUgY8hCx&_nc_ht=scontent-xsp1-2.xx&oh=26cc21edc71a1c125a2c0cc394c4fc35&oe=6126D2C0"
+      },
+      "geometry": {
+        "coordinates": [110.5361261, -8.0170152],
+        "type": "Point"
+      },
+      "id": "f078731e9bb92941a8f78c6804045ea1"
+    }
+  ],
+  "type": "FeatureCollection"
+}

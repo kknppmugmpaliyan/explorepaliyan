@@ -1,0 +1,31 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pesarean Ki Ageng Giring 3",
+        "address": "Sidorejo, Sodo, Paliyan, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55871, Indonesia",
+        "image_url": "https://mapio.net/images-p/121635309.jpg"
+      },
+      "geometry": {
+        "coordinates": [110.5579103, -8.0061138],
+        "type": "Point"
+      },
+      "id": "2092157c110921f2dd1ba0c16c5dff7d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Goa Ngeleng",
+        "address": "Candi, Giring, Paliyan, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta 55871, Indonesia",
+        "image_url": "https://rentalmobiljogja.id/wp-content/uploads/2017/08/goa-ngeleng-03-1280x720.jpg"
+      },
+      "geometry": {
+        "coordinates": [110.5519683, -8.025109],
+        "type": "Point"
+      },
+      "id": "672f634f4a0040e4fd7ca1981e041752"
+    }
+  ],
+  "type": "FeatureCollection"
+}
