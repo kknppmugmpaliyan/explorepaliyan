@@ -4,7 +4,7 @@ const settings = {
   name: "frontend",
   state: {
     frontity: {
-      url: "https://byeol.my.id",
+      url: "https://explorepaliyan.com",
       title: "Explore Paliyan",
       description:
         "Website Wisata dan UMKM Desa Sodo dan Mulusan dari KKN UGM Yogyakarta 2021",
@@ -85,7 +85,7 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          url: "https://byeol.my.id",
+          url: "https://dashboard.explorepaliyan.com",
           postTypes: [
             {
               type: "product", // type slug
