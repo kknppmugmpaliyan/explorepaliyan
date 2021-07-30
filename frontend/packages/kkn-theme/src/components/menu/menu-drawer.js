@@ -2,15 +2,16 @@ import {
   Drawer,
   DrawerCloseButton,
   DrawerContent,
-  DrawerOverlay
+  DrawerOverlay,
 } from "@chakra-ui/react";
 import React from "react";
+import StyleControl from "../constant/style-control";
 
 function MenuDrawer({ children, ...props }) {
   return (
     <Drawer preserveScrollBarGap size="sm" placement="left" {...props}>
       <DrawerOverlay />
-      <DrawerContent bg="primary.700" px={8} max="auto">
+      <DrawerContent bg={StyleControl.mainColor} px={8} max="auto">
         <DrawerCloseButton color="white" />
         {children}
       </DrawerContent>
