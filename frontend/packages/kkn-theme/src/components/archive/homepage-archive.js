@@ -14,8 +14,8 @@ import ArchiveItem from "./archive-item";
 import ProductItem from "./product-item";
 import StyleControl from "../constant/style-control";
 import Language from "../constant/language";
-import WelcomingBackground from "../../assets/welcoming-bg.png";
-import AboutBackground from "../../assets/about-bg.png";
+import WelcomingBackground from "../../assets/welcoming-bg.jpg";
+import AboutBackground from "../../assets/about-bg.jpg";
 import Link from "../link";
 import { BsArrowRight } from "react-icons/bs";
 
