@@ -5,7 +5,7 @@ import MobileMenu from "../menu";
 import { omitConnectProps } from "../helpers";
 import { connect } from "frontity";
 import StyleControl from "../constant/style-control";
-import LogoWebiste from "../../assets/logo-website.png";
+import LogoWebsite from "../../assets/logo-website.png";
 
 const SiteHeader = (props) => (
   <Box
@@ -61,7 +61,7 @@ const SiteLogo = connect(({ state, actions, ...props }) => {
           height="210px"
           style={BoxShadow}
         >
-          <img style={LogoStyle} src={LogoWebiste} alt={state.theme.logo} />
+          <img style={LogoStyle} src={LogoWebsite} alt={state.theme.logo} />
         </Box>
         <Box
           fontSize="2xl"
@@ -71,6 +71,9 @@ const SiteLogo = connect(({ state, actions, ...props }) => {
           fontWeight="bold"
           display={{ base: "flex", lg: "none" }}
         >
+          <Box width="30px" height="30px" mr={2}>
+            <img src={LogoWebsite} alt={state.theme.logo} />
+          </Box>
           {state.theme.logo}
         </Box>
       </Link>
