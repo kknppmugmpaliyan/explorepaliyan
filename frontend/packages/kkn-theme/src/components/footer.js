@@ -1,6 +1,5 @@
-import { Box, SimpleGrid, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Image, Grid, GridItem } from "@chakra-ui/react";
 import React, { Fragment } from "react";
-import { SocialMenu } from "./header/social-menu";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import StyleControl from "./constant/style-control";
@@ -8,11 +7,12 @@ import Language from "./constant/language";
 import LogoUGM from "../assets/logo-ugm.png";
 import LogoKKN from "../assets/logo-kkn.png";
 import LogoUnit from "../assets/logo-unit.png";
+import LogoKabupaten from "../assets/logo-kabupaten.png";
 
 const FooterCategory = styled.b`
   font-size: 18px;
   color: ${StyleControl.secondaryColor};
-`
+`;
 
 const FooterSection = (props) => (
   <Box
@@ -55,7 +55,11 @@ const Footer = ({ state }) => (
         {state.theme.categories.map(([name, link]) => (
           <Fragment key={name}>
             <br />
-            <Link _hover={{ textDecoration: 'underline' }} link={link} textTransform="capitalize">
+            <Link
+              _hover={{ textDecoration: "underline" }}
+              link={link}
+              textTransform="capitalize"
+            >
               {name}
             </Link>
           </Fragment>
@@ -66,25 +70,32 @@ const Footer = ({ state }) => (
         {state.theme.socialLinks.map(([name, link]) => (
           <Fragment key={name}>
             <br></br>
-            <Link _hover={{ textDecoration: 'underline' }} link={link} textTransform="capitalize">
+            <Link
+              _hover={{ textDecoration: "underline" }}
+              link={link}
+              textTransform="capitalize"
+            >
               {name}
             </Link>
           </Fragment>
         ))}
       </FooterSectionItem>
     </FooterSectionGroup>
-    <FooterSectionGroup templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(8, 1fr)" }}>
+    <FooterSectionGroup
+      templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(6, 1fr)" }}
+      maxWidth="600px"
+    >
       <FooterSectionItem colSpan={{ base: 1, md: 2 }}>
-        <img style={{ maxHeight: "120px" }} src={LogoUGM}></img>
+        <Image height="50px" src={LogoUGM}></Image>
       </FooterSectionItem>
       <FooterSectionItem colSpan={{ base: 1, md: 2 }}>
-        <img style={{ maxHeight: "120px" }} src={LogoUnit}></img>
+        <Image height="50px" src={LogoUnit}></Image>
       </FooterSectionItem>
-      <FooterSectionItem colSpan={{ base: 1, md: 2 }}>
-        <img style={{ maxHeight: "120px" }} src={LogoUnit}></img>
+      <FooterSectionItem colSpan={{ base: 1, md: 1 }}>
+        <Image height="50px" src={LogoKabupaten}></Image>
       </FooterSectionItem>
-      <FooterSectionItem colSpan={{ base: 1, md: 2 }}>
-        <img style={{ maxHeight: "100px" }} src={LogoKKN}></img>
+      <FooterSectionItem colSpan={{ base: 1, md: 1 }}>
+        <Image height="50px" src={LogoKKN}></Image>
       </FooterSectionItem>
     </FooterSectionGroup>
   </FooterSection>
