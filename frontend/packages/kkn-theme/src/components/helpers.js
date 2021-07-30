@@ -206,5 +206,9 @@ export function debounce(fn) {
 }
 
 export function currencyFormat(num) {
-  return "Rp. " + num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+  try {
+    return "Rp" + num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+  } catch (_) {
+    return "";
+  }
 }
