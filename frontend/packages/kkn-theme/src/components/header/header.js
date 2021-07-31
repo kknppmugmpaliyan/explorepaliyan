@@ -56,7 +56,11 @@ const SiteLogo = connect(({ state, actions, ...props }) => {
           height="150px"
           style={BoxShadow}
         >
-          <Image style={LogoStyle} src={LogoWebsite} alt={state.theme.logo} />
+          <Image
+            style={LogoStyle}
+            src={LogoWebsite}
+            alt={state.theme.logo.toLowerCase().replace(/\s/g, "-")}
+          />
         </Box>
         <Box
           fontSize="2xl"
@@ -67,7 +71,10 @@ const SiteLogo = connect(({ state, actions, ...props }) => {
           display={{ base: "flex", lg: "none" }}
         >
           <Box width="30px" height="30px" mr={2}>
-            <Image src={LogoWebsite} alt={state.theme.logo} />
+            <Image
+              src={LogoWebsite}
+              alt={state.theme.logo.toLowerCase().replace(/\s/g, "-")}
+            />
           </Box>
           {state.theme.logo}
         </Box>
