@@ -109,7 +109,7 @@ export function formatProductData(post) {
       srcSet: null,
     },
     product_description: post.product_description,
-    phone_number: post.phone_number,
+    phone_number: post.phone_number.toString().replace(/^0/, "62"),
     product_link: post.product_link,
   };
 }

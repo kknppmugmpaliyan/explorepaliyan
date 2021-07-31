@@ -1,16 +1,4 @@
-import {
-  Box,
-  Grid,
-  GridItem,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Td,
-  Th,
-  Tfoot,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Grid, GridItem, Button, useToast } from "@chakra-ui/react";
 import { connect, styled } from "frontity";
 import React, { useEffect } from "react";
 import List from "../archive";
@@ -21,6 +9,8 @@ import { getProductData, formatProductData } from "../helpers";
 import Link from "../link";
 import StyleControl from "../constant/style-control";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { ImWhatsapp } from "react-icons/im";
+import { RiFileCopyLine } from "react-icons/ri";
 import { currencyFormat } from "../helpers";
 
 const tableDataStyle = {
@@ -39,6 +29,8 @@ const Spacer = () => (
 const Post = ({ state, actions }) => {
   const postData = getProductData(state);
   const post = formatProductData(postData);
+
+  const toast = useToast();
 
   // Once the post has loaded in the DOM, prefetch both the
   // home posts and the list component so if the user visits
@@ -103,7 +95,40 @@ const Post = ({ state, actions }) => {
                   <GridItem colSpan={2}>{post.owner}</GridItem>
                   <Spacer />
                   <GridItem style={tableDataStyle}>Nomor Telepon</GridItem>
-                  <GridItem colSpan={2}>{post.phone_number}</GridItem>
+                  <GridItem colSpan={2}>
+                    {/^628/.test(post.phone_number) ? (
+                      <Link
+                        link={`https://wa.me/${post.phone_number.replace(
+                          /-/g,
+                          ""
+                        )}`}
+                      >
+                        <Button
+                          leftIcon={<ImWhatsapp size="20px" />}
+                          colorScheme="whatsapp"
+                        >
+                          {`+${post.phone_number}`}
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button
+                        leftIcon={<RiFileCopyLine size="20px" />}
+                        onClick={() => {
+                          navigator.clipboard.writeText(
+                            post.phone_number.replace(/-/g, "")
+                          );
+                          toast({
+                            title: "Nomor berhasil disalin.",
+                            status: "success",
+                            duration: 1000,
+                            isClosable: true,
+                          });
+                        }}
+                      >
+                        {post.phone_number}
+                      </Button>
+                    )}
+                  </GridItem>
                 </Grid>
               </Box>
             </GridItem>
