@@ -86,16 +86,16 @@ const Footer = ({ state }) => (
       maxWidth="600px"
     >
       <FooterSectionItem colSpan={{ base: 1, md: 2 }}>
-        <Image height="50px" src={LogoUGM}></Image>
+        <Image height="50px" src={LogoUGM} alt="logo-ugm"></Image>
       </FooterSectionItem>
       <FooterSectionItem colSpan={{ base: 1, md: 2 }}>
-        <Image height="50px" src={LogoUnit}></Image>
+        <Image height="50px" src={LogoUnit} alt="logo-unit"></Image>
       </FooterSectionItem>
       <FooterSectionItem colSpan={{ base: 1, md: 1 }}>
-        <Image height="50px" src={LogoKabupaten}></Image>
+        <Image height="50px" src={LogoKabupaten} alt="logo-kabupaten"></Image>
       </FooterSectionItem>
       <FooterSectionItem colSpan={{ base: 1, md: 1 }}>
-        <Image height="50px" src={LogoKKN}></Image>
+        <Image height="50px" src={LogoKKN} alt="logo-kkn"></Image>
       </FooterSectionItem>
     </FooterSectionGroup>
   </FooterSection>

@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { styled } from "frontity";
+import { Image } from "@chakra-ui/react";
 
 const UMKMInfo = (props) => {
   const { name, address, phone, product, image_url } = props.info.properties;
@@ -31,14 +32,7 @@ const UMKMInfo = (props) => {
           </tr>
         </tbody>
       </table>
-      <img
-        width={240}
-        src={image_url}
-        style={{
-          display: "block",
-          margin: "0 auto",
-        }}
-      />
+      <Image src={image_url} w={240} mx="auto" alt={name} />
     </Container>
   );
 };

@@ -22,7 +22,7 @@ export function getMediaAttributes(state, id) {
 
   return {
     id,
-    alt: media.alt_text,
+    alt: media.alt_text || media.slug,
     src: media.source_url,
     srcSet,
   };

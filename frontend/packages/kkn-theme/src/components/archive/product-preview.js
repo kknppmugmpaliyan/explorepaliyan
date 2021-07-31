@@ -5,6 +5,7 @@ import { styled } from "frontity";
 import { currencyFormat } from "../helpers";
 import { AiOutlineShopping } from "react-icons/ai";
 import StyleControl from "../constant/style-control";
+import DefaultImage from "../../assets/default-post.png";
 
 const ProductName = styled.p`
   font-family: Poppins;
@@ -76,7 +77,8 @@ const ProductPreview = ({ data, ...rest }) => {
             boxSize="200px"
             marginTop="24px"
             objectFit="cover"
-            src={featured_media.src}
+            src={featured_media.src || DefaultImage}
+            alt={featured_media.alt}
           />
         </Center>
         <Flex p="40px" flexGrow="1" direction="column">
