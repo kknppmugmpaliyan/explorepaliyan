@@ -14,7 +14,7 @@ function getSrcSet(media) {
   return srcset;
 }
 
-export function getMediaAttributes(state, id) {
+export function getMediaAttributes(state, id, title) {
   const media = state.source.attachment[id];
   if (!media) return {};
 
@@ -22,7 +22,7 @@ export function getMediaAttributes(state, id) {
 
   return {
     id,
-    alt: media.alt_text || media.slug,
+    alt: media.alt_text || title.toLowerCase().replace(/\s/g, "-"),
     src: media.source_url,
     srcSet,
   };
@@ -83,7 +83,11 @@ export function formatPostData(state, post) {
     categories: getPostCategories(state, post),
     tags: getPostTags(state, post),
     link: post.link,
-    featured_media: getMediaAttributes(state, post.featured_media),
+    featured_media: getMediaAttributes(
+      state,
+      post.featured_media,
+      post.title.rendered
+    ),
     content: post.content.rendered,
     excerpt: getParsedExcerpt(post.excerpt.rendered),
   };
