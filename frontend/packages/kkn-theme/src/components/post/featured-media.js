@@ -5,9 +5,7 @@ import React from "react";
 import { getMediaAttributes } from "../helpers";
 
 // eslint-disable-next-line
-const FeaturedMedia = ({ state, actions, libraries, id, ...props }) => {
-  const imgProps = getMediaAttributes(state, id);
-
+const FeaturedMedia = ({ state, actions, libraries, imgProps, ...props }) => {
   // is empty if the id doesn't exist in state.source anymore
   const noImgProps = Object.keys(imgProps).length === 0;
 
