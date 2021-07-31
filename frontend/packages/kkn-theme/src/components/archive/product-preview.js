@@ -60,17 +60,16 @@ const ProductPreview = ({ data, ...rest }) => {
     data;
 
   return (
-    <Link link={link}>
-      <Flex
-        direction="column"
-        position="relative"
-        bg="white"
-        as="article"
-        shadow="md"
-        borderRadius="15px"
-        {...rest}
-      >
-        {/* Use the frontity settings for featuredPost here */}
+    <Flex
+      direction="column"
+      position="relative"
+      bg="white"
+      as="article"
+      shadow="md"
+      borderRadius="15px"
+      {...rest}
+    >
+      <Link link={link}>
         <Center>
           <Image
             borderRadius="10px"
@@ -81,15 +80,17 @@ const ProductPreview = ({ data, ...rest }) => {
             alt={featured_media.alt}
           />
         </Center>
-        <Flex p="40px" flexGrow="1" direction="column">
+      </Link>
+      <Flex p="40px" flexGrow="1" direction="column">
+        <Link link={link}>
           <ProductName>{product_name}</ProductName>
-          <ProductPrice>{currencyFormat(product_price)}</ProductPrice>
-          <Center>
-            <ProductButton link={link} />
-          </Center>
-        </Flex>
+        </Link>
+        <ProductPrice>{currencyFormat(product_price)}</ProductPrice>
+        <Center>
+          <ProductButton link={link} />
+        </Center>
       </Flex>
-    </Link>
+    </Flex>
   );
 };
 
