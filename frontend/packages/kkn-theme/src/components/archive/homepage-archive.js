@@ -41,7 +41,7 @@ const AboutTitle = styled.p`
   font-weight: bold;
   font-size: 36px;
   line-height: 54px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #262626;
 `;
 
@@ -72,7 +72,7 @@ const Title = styled.p`
   font-weight: bold;
   font-size: 36px;
   line-height: 54px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #262626;
   display: inline;
 `;
@@ -138,7 +138,9 @@ const HomepageArchive = ({ state, libraries }) => {
           <Title>Produk </Title>
           <Title style={{ color: StyleControl.mainColor }}>UMKM</Title>
           <SimpleGrid
-            mt={{ base: "64px", md: "80px" }}
+            mt={{ base: "24px", md: "30px" }}
+            mb={{ base: "24px", md: "30px" }}
+            marginBlockStart={{ base: "24px", md: "30px" }}
             columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
             spacing="40px"
           >
@@ -147,7 +149,6 @@ const HomepageArchive = ({ state, libraries }) => {
               return <ProductItem key={item.id} item={item} />;
             })}
           </SimpleGrid>
-          <br />
           <Center>
             <ButtonAll link="/product">
               <TextButtonClickAll>Lihat Semua Produk</TextButtonClickAll>
@@ -185,7 +186,8 @@ const HomepageArchive = ({ state, libraries }) => {
         <Title>Artikel</Title>
 
         <SimpleGrid
-          mt={{ base: "64px", md: "80px" }}
+          mt={{ base: "24px", md: "30px" }}
+          mb={{ base: "24px", md: "30px" }}
           columns={{ base: 1, md: 2, lg: 3 }}
           spacing="40px"
         >
@@ -194,7 +196,6 @@ const HomepageArchive = ({ state, libraries }) => {
             return <ArchiveItem key={item.id} item={item} />;
           })}
         </SimpleGrid>
-        <br />
         <Center>
           <ButtonAll link="/?p=">
             <TextButtonClickAll>Lihat Semua Artikel</TextButtonClickAll>
