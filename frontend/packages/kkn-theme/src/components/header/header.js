@@ -31,22 +31,17 @@ const SiteHeaderInner = (props) => (
     {...props}
   />
 );
-// const BoxLogo = styled(Box)`
-//     width: 210px;
-//     height: 210px;
-//
-//     background: #FFFFFF;
-//     margin-top: 75px;
-// `
+
 const BoxShadow = {
   boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.2)",
   marginTop: "75px",
   background: "#FFFFFF",
+  borderRadius: "0 0 50% 50%",
 };
+
 const LogoStyle = {
   margin: "auto",
-  width: "150px",
-  paddingTop: "30px",
+  width: "130px",
 };
 
 const SiteLogo = connect(({ state, actions, ...props }) => {
@@ -57,8 +52,8 @@ const SiteLogo = connect(({ state, actions, ...props }) => {
       <Link link="/">
         <Box
           display={{ base: "none", lg: "flex" }}
-          width="210px"
-          height="210px"
+          width="150px"
+          height="150px"
           style={BoxShadow}
         >
           <Image style={LogoStyle} src={LogoWebsite} alt={state.theme.logo} />
