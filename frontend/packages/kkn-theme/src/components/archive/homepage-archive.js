@@ -98,8 +98,7 @@ const HomepageArchive = ({ state, actions }) => {
   const [firstThreePosts, othersPosts] = splitPosts(state, data.items);
 
   // If in home ("/")
-  var productData = { isReady: false },
-    product;
+  var productData, product;
 
   if (state.router.link == "/") {
     productData = state.source.get(`/product`);
@@ -107,10 +106,8 @@ const HomepageArchive = ({ state, actions }) => {
   }
 
   useEffect(() => {
-    if (!productData.isReady) {
-      actions.source.fetch(`/product`);
-    }
-  });
+    actions.source.fetch(`/product`);
+  }, []);
 
   return (
     <Box bg={StyleControl.pageColor} as="section">
