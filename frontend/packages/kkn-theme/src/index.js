@@ -97,12 +97,17 @@ const chakraTheme = {
       init: ({ libraries }) => {
         libraries.source.handlers.push(mapPageHandler);
       },
-      beforeSSR: ({ state, actions }) => {
+      beforeSSR: async ({ state, actions }) => {
         if (state.router.link == "/") {
-          actions.source.fetch("/product/");
+          await actions.source.fetch("/product/");
+        }
+        else if (state.router.link == "/maps/") {
+          await Promise.all([
+            actions.source.fetch("/umkm/"),
+            actions.source.fetch("/wisata/"),
+          ]);
         }
       },
-
     },
   },
   libraries: {

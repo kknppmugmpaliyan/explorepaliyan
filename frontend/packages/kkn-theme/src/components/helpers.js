@@ -114,6 +114,47 @@ export function formatProductData(post) {
   };
 }
 
+export function formatUmkmData(data) {
+  return {
+    umkm_name: data.umkm_name,
+    address: data.address,
+    phone: data.phone,
+    product: data.product,
+    image_url: data.umkm_photo.guid,
+    latitude: data.latitude,
+    longitude: data.longitude,
+  };
+}
+
+export function formatWisataData(data) {
+  return {
+    wisata_name: data.wisata_name,
+    address: data.address,
+    image_url: data.wisata_photo.guid,
+    latitude: data.latitude,
+    longitude: data.longitude,
+    type: "Point",
+  };
+}
+
+export function getUmkmData(state, data) {
+  const returnData = [];
+  data.forEach((item) => {
+    const itemData = state.source[item.type][item.id];
+    returnData.push(formatUmkmData(itemData));
+  });
+  return returnData;
+}
+
+export function getWisataData(state, data) {
+  const returnData = [];
+  data.forEach((item) => {
+    const itemData = state.source[item.type][item.id];
+    returnData.push(formatWisataData(itemData));
+  });
+  return returnData;
+}
+
 export function getFeaturedProduct(state, routeData, count) {
   const returnData = [];
   routeData.forEach((item, idx) => {

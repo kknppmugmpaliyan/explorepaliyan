@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import MapGL, {
   Source,
   Layer,
@@ -11,8 +11,6 @@ import MapGL, {
 } from "react-map-gl";
 import { connect } from "frontity";
 import { Box } from "@chakra-ui/react";
-import UMKMPoint from "../../../../../datasets/umkm-point.json";
-import WisataPoint from "../../../../../datasets/wisata-point.json";
 import BoundaryMulusan from "../../../../../datasets/boundary-mulusan.json";
 import BoundarySodo from "../../../../../datasets/boundary-sodo.json";
 import Legends from "./legends";
@@ -24,6 +22,9 @@ import WisataInfo from "./wisata-info";
 import { AiTwotoneShop } from "react-icons/ai";
 import { BsFillCircleFill } from "react-icons/bs";
 import { GiMountains } from "react-icons/gi";
+
+// Helpers
+import { getUmkmData, getWisataData } from "../helpers";
 
 const boundaryStyleMulusan = {
   id: "mulusan",
@@ -67,7 +68,73 @@ const scaleControlStyle = {
   padding: "10px",
 };
 
-const Maps = ({ state }) => {
+const getUMKMPoint = (data) => {
+  return {
+    features: data.map(
+      (
+        { umkm_name, address, phone, product, image_url, latitude, longitude },
+        idx
+      ) => {
+        return {
+          type: "Feature",
+          properties: {
+            name: umkm_name,
+            address,
+            phone,
+            product,
+            image_url,
+          },
+          geometry: {
+            coordinates: [parseFloat(latitude), parseFloat(longitude)],
+            type: "Point",
+          },
+          id: `umkm${idx}`,
+        };
+      }
+    ),
+    type: "FeatureCollection",
+  };
+};
+
+const getWisataPoint = (data) => {
+  return {
+    features: data.map(
+      ({ wisata_name, address, image_url, latitude, longitude }, idx) => {
+        return {
+          type: "Feature",
+          properties: {
+            name: wisata_name,
+            address,
+            image_url,
+          },
+          geometry: {
+            coordinates: [parseFloat(latitude), parseFloat(longitude)],
+            type: "Point",
+          },
+          id: `wisata${idx}`,
+        };
+      }
+    ),
+    type: "FeatureCollection",
+  };
+};
+
+const Maps = ({ state, actions }) => {
+  // Fetch umkm and wisata point
+  const umkmData = state.source.get(`/umkm`);
+  const wisataData = state.source.get(`/wisata`);
+
+  const UMKM = getUmkmData(state, umkmData.items || []);
+  const Wisata = getWisataData(state, wisataData.items || []);
+
+  const UMKMPoint = getUMKMPoint(UMKM);
+  const WisataPoint = getWisataPoint(Wisata);
+
+  useEffect(() => {
+    actions.source.fetch(`/umkm`);
+    actions.source.fetch(`/wisata`);
+  }, []);
+
   const [popupUMKMInfo, setPopupUMKMInfo] = useState(null);
   const [popupWisataInfo, setPopupWisataInfo] = useState(null);
   const [viewport, setViewport] = useState({

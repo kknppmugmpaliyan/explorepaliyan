@@ -88,9 +88,19 @@ const settings = {
           url: "https://dashboard.explorepaliyan.com",
           postTypes: [
             {
-              type: "product", // type slug
-              endpoint: "product", // REST API endpoint
-              archive: "/product", // link where this custom posts are listed
+              type: "product",
+              endpoint: "product",
+              archive: "/product",
+            },
+            {
+              type: "umkm",
+              endpoint: "umkm",
+              archive: "/umkm",
+            },
+            {
+              type: "wisata",
+              endpoint: "wisata",
+              archive: "/wisata",
             },
           ],
         },
