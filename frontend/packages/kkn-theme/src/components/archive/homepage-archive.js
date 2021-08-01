@@ -1,13 +1,6 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Center,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, Center, Button } from "@chakra-ui/react";
 import { connect, styled } from "frontity";
-import React from "react";
+import React, { useEffect } from "react";
 // import { FeaturedPostSection } from "../featured-post/featured-post";
 import { getFeaturedProduct, splitPosts } from "../helpers";
 import ArchiveItem from "./archive-item";
@@ -99,17 +92,25 @@ const ButtonAll = ({ children, link, ...props }) => (
   </Link>
 );
 
-const HomepageArchive = ({ state, libraries }) => {
+const HomepageArchive = ({ state, actions }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
   const [firstThreePosts, othersPosts] = splitPosts(state, data.items);
 
   // If in home ("/")
-  var productData, product;
+  var productData = { isReady: false },
+    product;
+
   if (state.router.link == "/") {
     productData = state.source.get(`/product`);
-    product = getFeaturedProduct(state, productData.items, 4);
+    product = getFeaturedProduct(state, productData.items || [], 4);
   }
+
+  useEffect(() => {
+    if (!productData.isReady) {
+      actions.source.fetch(`/product`);
+    }
+  });
 
   return (
     <Box bg={StyleControl.pageColor} as="section">
