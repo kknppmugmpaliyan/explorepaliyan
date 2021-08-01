@@ -167,6 +167,7 @@ const Maps = ({ state, actions }) => {
 
   const changeUMKMPointLocation = useCallback((loc) => {
     setPopupUMKMInfo(loc);
+    setPopupWisataInfo(null);
     setViewport({
       longitude: loc.geometry.coordinates[0],
       latitude: loc.geometry.coordinates[1] - 0.006,
@@ -178,6 +179,7 @@ const Maps = ({ state, actions }) => {
 
   const changeWisataPointLocation = useCallback((loc) => {
     setPopupWisataInfo(loc);
+    setPopupUMKMInfo(null);
     setViewport({
       longitude: loc.geometry.coordinates[0],
       latitude: loc.geometry.coordinates[1] - 0.006,
