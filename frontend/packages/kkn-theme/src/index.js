@@ -94,17 +94,37 @@ const chakraTheme = {
       //   console.log(window.pageYOffset);
       //   console.log(state.theme.isShowFullLogo)
       // },
-      init: ({ libraries }) => {
+      init: ({ libraries, actions, state }) => {
         libraries.source.handlers.push(mapPageHandler);
+        actions.source.fetchWithCountPerPage = async (link, per_page) => {
+          link = link.toLowerCase().replace(/\//g, "");
+
+          const response = await libraries.source.api.get({
+            endpoint: link,
+            params: { _embed: true, per_page },
+          });
+
+          const items = await libraries.source.populate({
+            response,
+            state,
+          });
+
+          state.source.data[`/${link}/`] = {
+            type: link,
+            route: `/${link}/`,
+            link: `/${link}/`,
+            items,
+            isReady: true,
+          };
+        };
       },
       beforeSSR: async ({ state, actions }) => {
         if (state.router.link == "/") {
           await actions.source.fetch("/product/");
-        }
-        else if (state.router.link == "/maps/") {
+        } else if (state.router.link == "/maps/") {
           await Promise.all([
-            actions.source.fetch("/umkm/"),
-            actions.source.fetch("/wisata/"),
+            actions.source.fetchWithCountPerPage("/umkm/", 99),
+            actions.source.fetchWithCountPerPage("/wisata/", 99),
           ]);
         }
       },

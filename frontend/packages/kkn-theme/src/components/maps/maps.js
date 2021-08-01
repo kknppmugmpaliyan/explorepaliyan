@@ -131,8 +131,8 @@ const Maps = ({ state, actions }) => {
   const WisataPoint = getWisataPoint(Wisata);
 
   useEffect(() => {
-    actions.source.fetch(`/umkm`);
-    actions.source.fetch(`/wisata`);
+    actions.source.fetchWithCountPerPage("/umkm/", 99);
+    actions.source.fetchWithCountPerPage("/wisata/", 99);
   }, []);
 
   const [popupUMKMInfo, setPopupUMKMInfo] = useState(null);
