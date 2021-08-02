@@ -26,7 +26,7 @@ const settings = {
           // show background pattern
           showBackgroundPattern: true,
           // show social links
-          showSocialLinks: false,
+          showSocialLinks: true,
           // the top-level navigation labels and links
           menu: [
             ["Beranda", "/"],
@@ -39,7 +39,7 @@ const settings = {
           socialLinks: [
             ["instagram", "https://www.instagram.com/kknpaliyan/"],
             [
-              "YouTube",
+              "youTube",
               "https://www.youtube.com/channel/UCE1KmKynEiPtHcJRxHeR7bQ",
             ],
             ["whatsApp", "https://wa.me/6289612345678"],
