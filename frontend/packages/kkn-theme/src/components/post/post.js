@@ -37,7 +37,7 @@ const Post = ({ state, actions, libraries }) => {
         <PostHeader
           mt={{ base: "20px", lg: "4rem" }}
           px={{ base: "32px", md: "0" }}
-          categories={post.categories}
+          tags={post.tags}
           heading={post.title}
           author={post.author}
           date={post.publishDate}

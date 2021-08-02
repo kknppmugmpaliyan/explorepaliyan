@@ -1,14 +1,14 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
-import PostCategories from "./post-categories";
+import PostTags from "./post-tags";
 import { formatDate } from "../helpers";
 import { decode } from "frontity";
 import StyleControl from "../constant/style-control";
 
 const PostHeader = ({
   heading,
-  categories,
+  tags,
   description,
   author,
   date,
@@ -16,13 +16,7 @@ const PostHeader = ({
   ...props
 }) => (
   <Box textAlign="center" {...props}>
-    {categories && (
-      <PostCategories
-        color="black"
-        categories={categories}
-        justifyContent="center"
-      />
-    )}
+    {tags && <PostTags color="black" tags={tags} justifyContent="center" />}
     <Heading
       fontWeight="bold"
       size="2xl"
@@ -36,7 +30,11 @@ const PostHeader = ({
     {!isPage && author && (
       <Text fontSize="lg">
         oleh{" "}
-        <Link fontWeight="bold" color={StyleControl.secondaryColor} link={author.link}>
+        <Link
+          fontWeight="bold"
+          color={StyleControl.secondaryColor}
+          link={author.link}
+        >
           {decode(author.name)}
         </Link>
       </Text>
