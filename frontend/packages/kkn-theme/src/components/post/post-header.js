@@ -1,7 +1,7 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import Link from "../link";
-import PostTags from "./post-tags";
+import PostCategories from "./post-categories";
 import { formatDate } from "../helpers";
 import { decode } from "frontity";
 import StyleControl from "../constant/style-control";
@@ -16,7 +16,9 @@ const PostHeader = ({
   ...props
 }) => (
   <Box textAlign="center" {...props}>
-    {tags && <PostTags color="black" tags={tags} justifyContent="center" />}
+    {tags && (
+      <PostCategories color="black" categories={tags} justifyContent="center" />
+    )}
     <Heading
       fontWeight="bold"
       size="2xl"
