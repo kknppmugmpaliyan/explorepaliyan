@@ -11,6 +11,7 @@ import Post from "./post/post";
 import Product from "./product/post";
 import SearchResults from "./search";
 import Title from "./title";
+import Description from "./description";
 import FontFace from "./styles/font-face";
 import Maps from "./maps/maps";
 
@@ -35,9 +36,9 @@ const Theme = ({ state }) => {
       <FontFace />
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
+      <Description />
       <Head>
-        <meta name="description" content={state.frontity.description} />
-        <html lang="en" />
+        <html lang="id" />
       </Head>
 
       <Header />

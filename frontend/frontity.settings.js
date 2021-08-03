@@ -6,8 +6,7 @@ const settings = {
     frontity: {
       url: "https://explorepaliyan.com",
       title: "Explore Paliyan",
-      description:
-        "Website Wisata dan UMKM Desa Sodo dan Mulusan dari KKN UGM Yogyakarta 2021",
+      description: "Paliyan - Hidden Gem of Gunung Kidul",
     },
     mapbox: {
       mapboxAccessToken: MAPBOX_ACCESS_TOKEN,
@@ -33,7 +32,7 @@ const settings = {
             ["Desa", "/category/desa/"],
             ["Produk UMKM", "/product/"],
             ["Artikel Edukasi", "/category/blog/"],
-            ["Peta", "/maps"],
+            ["Peta", "/maps/"],
           ],
           // the social links
           socialLinks: [
@@ -108,6 +107,7 @@ const settings = {
     },
     "@frontity/tiny-router",
     "@frontity/html2react",
+    "@frontity/head-tags",
   ],
 };
 

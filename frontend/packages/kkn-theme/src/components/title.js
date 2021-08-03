@@ -2,12 +2,22 @@ import React from "react";
 import { Head, connect } from "frontity";
 import { decode } from "frontity";
 
+const findMenu = (state) => {
+  for (let x of state.theme.menu) {
+    if (state.router.link == x[1]) {
+      return x[0];
+    }
+  }
+  return false;
+};
+
 const Title = ({ state }) => {
   // Get data about the current URL.
   const data = state.source.get(state.router.link);
   // Set the default title.
   let title = state.frontity.title;
-
+  let menu;
+  
   if (data.isTaxonomy) {
     // Add titles to taxonomies, like "Category: Nature - Blog Name" or "Tag: Japan - Blog Name".
     // 1. Get the taxonomy entity from the state to get its taxonomy term and name.
@@ -34,6 +44,8 @@ const Title = ({ state }) => {
   } else if (data.is404) {
     // Add titles to 404's.
     title = `404 Not Found - ${state.frontity.title}`;
+  } else if ((menu = findMenu(state))) {
+    title = `${menu} - ${state.frontity.title}`;
   }
 
   return (
