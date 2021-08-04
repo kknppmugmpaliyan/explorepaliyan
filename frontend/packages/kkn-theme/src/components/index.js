@@ -14,6 +14,7 @@ import Title from "./title";
 import Description from "./description";
 import FontFace from "./styles/font-face";
 import Maps from "./maps/maps";
+import LogoWebsite from "../assets/logo-website.png";
 
 // CSS
 import mapboxCss from "../styles/mapbox-gl.css";
@@ -38,6 +39,7 @@ const Theme = ({ state }) => {
       <Title />
       <Description />
       <Head>
+        <meta name="og:image" content={LogoWebsite} />
         <html lang="id" />
       </Head>
 
