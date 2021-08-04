@@ -21,5 +21,4 @@ npx vercel --prod
 
 ## Must Installed WP Plugins
 
-1. REST API - Head Tags
-2. Pods - Custom Content Types and Fields
+1. Pods - Custom Content Types and Fields
