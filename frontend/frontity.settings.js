@@ -41,7 +41,7 @@ const settings = {
               "youTube",
               "https://www.youtube.com/channel/UCE1KmKynEiPtHcJRxHeR7bQ",
             ],
-            ["whatsApp", "https://wa.me/6289612345678"],
+            ["whatsApp", "https://wa.me/628979510436"],
           ],
           // footer categories
           categories: [
